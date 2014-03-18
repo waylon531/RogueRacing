@@ -70,9 +70,14 @@ end
 function love.keypressed(key)
 	local successful=true
 	if key==" " and level=="menu" then
+		mapX=0
+		local inc=0
 		offset=0
 		width=5
 		while successful==true do
+			offset=0
+			width=5
+			inc=inc+1
 			for row=1,23 do 
 				width,offset,newLine=generate(width,offset,offset,newLine,0)
 				for x=-15,15 do
@@ -85,8 +90,10 @@ function love.keypressed(key)
 					valleyMap:setTile(x+16,row,newLine[x]+1)
 				end
 			end
-		tempVar,successful=player:collisionDetect(valleyMap,mapX,preMap)
+			tempVar,successful=player:collisionDetect(valleyMap,mapX,preMap)
+			if inc>10 then successful=false end
 		end
+		inc=0
 		craters={}
 		shooter={}
 		shootTime={}
