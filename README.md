@@ -1,4 +1,3 @@
-RogueRacing
-===========
-
-A procedurally generated racing game
+This is a procedurally generated racing game  
+The directional keys move your car  
+Space resets your car
