@@ -2,6 +2,9 @@ function generate(width,offset,offsetMean,oldLine,timePassed)
 	if timePassed==nil then
 		timePassed=0
 	end
+	permaW=width
+	permaO=offset
+	permaM=offsetMean
 	local edge = true
 	local line = {}
 	success=false
@@ -72,6 +75,11 @@ function generate(width,offset,offsetMean,oldLine,timePassed)
 			end
 		else
 			success=true
+		end
+		if success==false then
+			width=permaW
+			offset=permaO
+			offsetMean=permaM
 		end
 	end
 	return width, newOffset, line
