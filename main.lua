@@ -74,7 +74,7 @@ function love.keypressed(key)
 		local inc=0
 		offset=0
 		width=5
-		while successful==true do
+		while successful==true and inc<=15 do
 			offset=0
 			width=5
 			inc=inc+1
@@ -91,7 +91,7 @@ function love.keypressed(key)
 				end
 			end
 			tempVar,successful=player:collisionDetect(valleyMap,mapX,preMap)
-			if inc>10 then successful=false end
+			--if inc>10 then successful=false end
 		end
 		inc=0
 		craters={}
