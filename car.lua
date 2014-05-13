@@ -25,8 +25,8 @@ end
 function car:collisionDetect(map,mapX,preMap)
 	local mapx=mapX
 	local collision=false
-	for x=-self.width/2,self.width/2 do
-		for y=-self.length/2,self.length/2 do
+	for x=-self.width/2,self.width/2,2 do
+		for y=-self.length/2,self.length/2,4 do
 			local ang=math.deg(math.atan2(y,x))
 			local angle=ang+self.angle
 			local c=math.sqrt(y*y+x*x)
@@ -77,7 +77,11 @@ function car:accelerate(acceleration,dt)
 	end
 end
 function car:getSpeed()
-	return self.speed
+  if self.speed>7.98 then
+    return 8
+  else
+    return self.speed
+  end
 end
 function car:getAngle()
 	return self.angle
