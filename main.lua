@@ -172,7 +172,7 @@ function love.keypressed(key)
 end
 function love.update(dt)
   if level ~= "end" and level~="menu" then
-    if dt>.5 then dt=.1 end
+    if dt>.5 then dt=.02 end
     if player:getAlive()==true then
       resetTimer=resetTimer+dt
       if resetTimer<5 then

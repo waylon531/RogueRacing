@@ -8,6 +8,7 @@ function generate(width,offset,offsetMean,oldLine,timePassed)
 	local edge = true
 	local line = {}
 	success=false
+	local inc = 0
 	while success == false do
 		newOffset = love.math.randomNormal( 1, offsetMean )
 		if newOffset >0 then 
@@ -77,9 +78,13 @@ function generate(width,offset,offsetMean,oldLine,timePassed)
 			success=true
 		end
 		if success==false then
+			inc=inc+1
 			width=permaW
 			offset=permaO
 			offsetMean=permaM
+		end
+		if inc>3 then
+			success=true
 		end
 	end
 	return width, newOffset, line
