@@ -7,6 +7,7 @@ generator=require "generator"
 core=require "core"
 carClass=require "car"
 function love.load()
+  love.filesystem.setIdentity("RogueRacing")
   red=255
   windowWidth=love.graphics.getWidth()/2
   text=""
