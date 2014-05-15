@@ -36,8 +36,8 @@ function car:collisionDetect(map,mapX,preMap)
 			local tileX=math.ceil(newX/32)
 			if map:getTile(tileX,tileY)~=1 then
 				if collision==false then
-					if self.speed>1 then
-						self.health=math.ceil(self.health-3^(self.speed-1)+1)
+					if math.abs(self.speed)>1 then
+						self.health=math.ceil(self.health-3^(math.abs(self.speed)-1)+1)
 					end
 					if self.speed~=0 then
 						if y<1 then
@@ -74,6 +74,8 @@ function car:accelerate(acceleration,dt)
 	self.speed=self.speed+acceleration*self.acceleration*dt
 	if self.speed>self.topSpeed then
 		self.speed=self.topSpeed
+  elseif self.speed < -self.topSpeed/2 then
+    self.speed=-self.topSpeed/2
 	end
 end
 function car:getSpeed()
