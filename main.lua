@@ -59,9 +59,12 @@ function love.draw()
 		end
 		love.graphics.setColor(0,0,0)
 		love.graphics.setFont(font)
-		love.graphics.print("Speed: "..math.floor(player:getSpeed()*15),1000,love.graphics.getHeight()/2-50)
-		love.graphics.print("Health: "..player:getHealth(),1000,love.graphics.getHeight()/2)
-		love.graphics.print("Score: "..score,1000,love.graphics.getHeight()/2+50)
+		--love.graphics.print("Speed: "..math.floor(player:getSpeed()*15),1000,love.graphics.getHeight()/2-50)
+		--love.graphics.print("Health: "..player:getHealth(),1000,love.graphics.getHeight()/2)
+		--love.graphics.print("Score: "..score,1000,love.graphics.getHeight()/2+50)
+    love.graphics.print("Speed: "..math.floor(player:getSpeed()*15),200,5)
+		love.graphics.print("Health: "..player:getHealth(),10,5)
+		love.graphics.print("Score: "..score,800,5)
 		love.graphics.setColor(255,255,255)
 		for i=1,table.getn(shooter)/2 do
 			love.graphics.draw(turrets[turretTime(i)],32*(shooter[2*i-1]+15)+16,love.graphics.getHeight()-32*shooter[2*i]+mapX+16,math.atan2(-shooter[2*i]*32+100,32*(shooter[2*i-1]+15)-player:getX())+math.pi,1,1,16,16)
@@ -78,6 +81,8 @@ function love.draw()
 		love.graphics.print("Press space to start!",love.graphics.getWidth()/2-font:getWidth("Press space to start!")/2-20,love.graphics.getHeight()/2)
   elseif level == "end" then
     love.graphics.print("GAME OVER",windowWidth-60,200)
+    love.graphics.print("Space to restart",windowWidth-60,450)
+    love.graphics.print("Direction keys control your car",windowWidth-130,500)
 		love.graphics.print(score,windowWidth-20,170)
     for i, v in ipairs(csv) do 
       if (i % 2 == 0) then
